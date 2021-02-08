@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\ProcessPage;
+use App\Jobs\ProcessPost;
 use App\Jobs\ProcessProject;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Redis;
@@ -50,7 +50,7 @@ class ContentMessages extends Command
             switch ($content['type']) {
                 case 'page':
                     Log::debug('content is page, dispatch job');
-                    ProcessPage::dispatch($content)
+                    ProcessPost::dispatch($content)
                         ->onConnection('default');
                     break;
 
