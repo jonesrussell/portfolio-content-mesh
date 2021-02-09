@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Repositories\PageRepository;
+use App\Repositories\PostRepository;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -13,8 +13,8 @@ class ProcessPost implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /** @var PageRepository */
-    protected $pageRepo;
+    /** @var PostRepository */
+    protected $postRepo;
 
     /** @var array */
     protected $details;
@@ -32,12 +32,12 @@ class ProcessPost implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param PageRepository $pageRepo
+     * @param PostRepository $postRepo
      *
      * @throws \Exception
      */
-    public function handle(PageRepository $pageRepo)
+    public function handle(PostRepository $postRepo)
     {
-        $pageRepo->addItemFromUrl($this->details);
+        $postRepo->addItemFromUrl($this->details);
     }
 }

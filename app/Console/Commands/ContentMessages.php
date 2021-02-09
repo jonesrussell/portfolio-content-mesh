@@ -48,15 +48,9 @@ class ContentMessages extends Command
             logger($content, ["config('topic.content')" => config('topic.content')]);
 
             switch ($content['type']) {
-                case 'page':
-                    Log::debug('content is page, dispatch job');
+                case 'post':
+                    Log::debug('content is post, dispatch job');
                     ProcessPost::dispatch($content)
-                        ->onConnection('default');
-                    break;
-
-                case 'project':
-                    Log::debug('content is project, dispatch job');
-                    ProcessProject::dispatch($content)
                         ->onConnection('default');
                     break;
             }
