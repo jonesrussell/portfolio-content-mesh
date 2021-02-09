@@ -71,10 +71,6 @@ trait RemoteContent
                 $item = PostResource::make($document)->resolve();
                 break;
 
-            case 'project':
-                $item = ProjectResource::make($document)->resolve();
-                break;
-
             default:
                 return false;
         }
