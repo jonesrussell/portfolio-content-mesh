@@ -13,8 +13,6 @@ mysql_version: ""
 provider: default
 use_dns_when_possible: true
 composer_version: ""
-
-
 # This config.yaml was created with ddev version v1.16.5
 # webimage: drud/ddev-webserver:v1.16.3
 # dbimage: drud/ddev-dbserver-mariadb-10.2:v1.16.0
