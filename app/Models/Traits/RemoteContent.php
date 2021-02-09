@@ -3,7 +3,6 @@
 namespace App\Models\Traits;
 
 use App\Exceptions\GeneralException;
-use App\Http\Resources\ProjectResource;
 use App\Http\Resources\PostResource;
 
 /**
