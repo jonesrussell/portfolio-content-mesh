@@ -3,4 +3,5 @@
 # or packages or anything else to your webimage
 ARG BASE_IMAGE
 FROM $BASE_IMAGE
-RUN apt-get install php7.4-redis supervisor
+RUN apt-get install php7.3-redis supervisor
+RUN npm install supervisor
