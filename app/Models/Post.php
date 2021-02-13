@@ -1,13 +1,31 @@
 <?php
 
+/**
+ * @file
+ * @category Blog
+ * @package  Portfolio
+ * @author   Russell Jones <jonesrussell42@gmail.com>
+ * Database model for blog post from https://blog.jonesrussell42.xyz
+ *
+ * Bloggin
+ */
+
 namespace App\Models;
 
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
+/**
+ * @category Blog
+ * @package  Portfolio
+ * @author   Russell Jones <jonesrussell42@gmail.com>
+ * Extend Eloquent
+ *
+ * test
+ */
 class Post extends Eloquent
 {
     protected $connection = 'mongo';
-    protected $collection = 'pages';
+    protected $collection = 'posts';
     protected $primaryKey = '_id';
     public $incrementing  = false;
 
