@@ -1,12 +1,29 @@
 <?php
 
+/**
+ * RemoteContent.php
+ * PHP Version 7
+ *
+ * @category PubSub
+ * @package  Laravel
+ * @author   Russell Jones <russell@web.net>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://content-mesh.jonesrussell42.xyz
+ */
+
 namespace App\Models\Traits;
 
 use App\Exceptions\GeneralException;
 use App\Http\Resources\PostResource;
 
 /**
- * Trait Uuid.
+ * Trait Uuid
+ *
+ * @category PubSub
+ * @package  Laravel
+ * @author   Russell Jones <russell@web.net>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://content-mesh.jonesrussell42.xyz
  */
 trait RemoteContent
 {
@@ -21,7 +38,7 @@ trait RemoteContent
      * Retrieve content from API and
      * add to the database.
      *
-     * @param array $details
+     * @param array $details Content details
      *
      * @throws \GeneralException
      *

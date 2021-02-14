@@ -1,15 +1,31 @@
 <?php
 
+/**
+ * ContentMessages.php
+ * PHP Version 7
+ *
+ * @category PubSub
+ * @package  Laravel
+ * @author   Russell Jones <russell@web.net>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://content-mesh.jonesrussell42.xyz
+ */
+
 namespace App\Console\Commands;
 
 use App\Jobs\ProcessPost;
-use App\Jobs\ProcessProject;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Redis;
 use Log;
 
 /**
  * Watch for and process messages sent through Redis.
+ *
+ * @category PubSub
+ * @package  PubSub
+ * @author   Russell Jones <russell@web.net>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://content-mesh.jonesrussell42.xyz
  */
 class ContentMessages extends Command
 {
@@ -25,7 +41,7 @@ class ContentMessages extends Command
      *
      * @var string
      */
-    protected $description = 'Subscribe to a Redis topic looking for content updates from CMS.';
+    protected $description = "Subscribe to a Redis topic looking for content updates from CMS";
 
     /**
      * Create a new command instance.
@@ -43,17 +59,21 @@ class ContentMessages extends Command
     public function handle()
     {
         $redis = Redis::connection('content');
-        $redis->psubscribe([config('topic.content')], function ($message) {
-            $content = json_decode($message, true);
-            logger($content, ["config('topic.content')" => config('topic.content')]);
 
-            switch ($content['type']) {
-                case 'post':
-                    Log::debug('content is post, dispatch job');
-                    ProcessPost::dispatch($content)
-                        ->onConnection('default');
-                    break;
+        $redis->psubscribe(
+            [config('topic.content')],
+            function ($message) {
+                $content = json_decode($message, true);
+                logger($content, ["config('topic.content')" => config('topic.content')]);
+
+                switch ($content['type']) {
+                    case 'post':
+                        Log::debug('content is post, dispatch job');
+                        ProcessPost::dispatch($content)
+                            ->onConnection('default');
+                        break;
+                }
             }
-        });
+        );
     }
 }
