@@ -3,6 +3,8 @@
     "junstyle.php-cs-fixer",
     "felixfbecker.php-debug",
     "bmewburn.vscode-intelephense-client",
-    "ikappas.phpcs"
+    "ikappas.phpcs",
+    "mikestead.dotenv",
+    "iocave.monkey-patch"
   ]
 }
