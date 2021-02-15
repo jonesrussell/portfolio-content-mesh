@@ -51,10 +51,12 @@ return [
             'username' => env('DB_USERNAME', ''),
             'password' => env('DB_PASSWORD', ''),
             'options'  => [
-                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'), // required by mongo 3
+                // required by mongo 3
+                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
             ],
             'dump' => [
-                'mongodb_user_auth' => 'admin', // <- the missing parameter which has been omitted in docs ?
+                // <- the missing parameter which has been omitted in docs ?
+                'mongodb_user_auth' => 'admin',
             ],
         ],
 
@@ -73,9 +75,11 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
+            'options' => extension_loaded('pdo_mysql') ? array_filter(
+                [
+                    PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                ]
+            ) : [],
         ],
 
         'pgsql' => [
@@ -138,7 +142,10 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env(
+                'REDIS_PREFIX',
+                Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'
+            ),
             'parameters' => ['password' => env('REDIS_PASSWORD', null)],
         ],
 

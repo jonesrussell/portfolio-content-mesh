@@ -41,7 +41,7 @@ class ContentMessages extends Command
      *
      * @var string
      */
-    protected $description = "Subscribe to a Redis topic looking for content updates from CMS";
+    protected $description = "Subscribe to Redis topic looking for content updates";
 
     /**
      * Create a new command instance.
