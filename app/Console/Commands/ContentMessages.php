@@ -64,7 +64,10 @@ class ContentMessages extends Command
             [config('topic.content')],
             function ($message) {
                 $content = json_decode($message, true);
-                logger($content, ["config('topic.content')" => config('topic.content')]);
+                logger(
+                    $content,
+                    ["config('topic.content')" => config('topic.content')]
+                );
 
                 switch ($content['type']) {
                     case 'post':
