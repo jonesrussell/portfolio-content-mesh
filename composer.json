@@ -21,6 +21,7 @@
         "rap2hpoutre/laravel-log-viewer": "^1.7"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.5",
         "barryvdh/laravel-ide-helper": "^2.9",
         "emielmolenaar/phpcs-laravel": "^2.0",
         "facade/ignition": "^2.5",
