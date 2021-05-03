@@ -1,7 +1,7 @@
 name: portfolio-content-mesh
 type: laravel
 docroot: public
-php_version: "7.3"
+php_version: "7.4"
 webserver_type: nginx-fpm
 router_http_port: "80"
 router_https_port: "443"
@@ -13,7 +13,7 @@ mysql_version: ""
 provider: default
 use_dns_when_possible: true
 composer_version: ""
-webimage_extra_packages: [php7.3-mongodb]
+webimage_extra_packages: [php7.4-mongodb]
 
 # This config.yaml was created with ddev version v1.16.5
 # webimage: drud/ddev-webserver:v1.16.3
@@ -127,7 +127,7 @@ webimage_extra_packages: [php7.3-mongodb]
 # mailhog_https_port: "8026"
 # The MailHog ports can be changed from the default 8025 and 8026
 
-# webimage_extra_packages: [php7.3-tidy, php-bcmath]
+# webimage_extra_packages: [php7.4-tidy, php-bcmath]
 # Extra Debian packages that are needed in the webimage can be added here
 
 # dbimage_extra_packages: [telnet,netcat]
