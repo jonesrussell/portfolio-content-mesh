@@ -13,6 +13,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\ProcessPage;
 use App\Jobs\ProcessPost;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Redis;
@@ -70,6 +71,11 @@ class ContentMessages extends Command
                 );
 
                 switch ($content['type']) {
+                    case 'page':
+                        Log::debug('content is page, dispatch job');
+                        ProcessPost::dispatch($content)
+                            ->onConnection('default');
+                        break;
                     case 'post':
                         Log::debug('content is post, dispatch job');
                         ProcessPost::dispatch($content)
