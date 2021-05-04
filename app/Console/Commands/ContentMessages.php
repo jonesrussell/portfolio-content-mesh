@@ -34,7 +34,7 @@ class ContentMessages extends Command
      *
      * @var string
      */
-    protected $signature = 'content:messages';
+    protected $signature = 'content:update';
 
     /**
      * The console command description.
