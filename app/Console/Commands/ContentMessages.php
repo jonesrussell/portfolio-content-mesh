@@ -73,7 +73,7 @@ class ContentMessages extends Command
                 switch ($content['type']) {
                     case 'page':
                         Log::debug('content is page, dispatch job');
-                        ProcessPost::dispatch($content)
+                        ProcessPage::dispatch($content)
                             ->onConnection('default');
                         break;
                     case 'post':

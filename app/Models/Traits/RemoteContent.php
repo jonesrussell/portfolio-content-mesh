@@ -14,6 +14,7 @@
 namespace App\Models\Traits;
 
 use App\Exceptions\GeneralException;
+use App\Http\Resources\PageResource;
 use App\Http\Resources\PostResource;
 
 /**
@@ -84,6 +85,10 @@ trait RemoteContent
         // Transform the document into a Resource
         switch ($this->type) {
             case 'page':
+                $item = PageResource::make($document)->resolve();
+                break;
+
+            case 'post':
                 $item = PostResource::make($document)->resolve();
                 break;
 

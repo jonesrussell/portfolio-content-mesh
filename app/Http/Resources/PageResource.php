@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
 
-class PostResource extends JsonResource
+class PageResource extends JsonResource
 {
     /**
      * A JSON:API Document resource.
@@ -59,7 +59,7 @@ class PostResource extends JsonResource
             'sticky'  => $this->attributes['sticky'],
             'metatag' => $this->attributes['metatag'],
             'body'    => $this->attributes['body'],
-            'link'    => $this->attributes['link'],
+            // 'link'    => $this->attributes['link'],
         ];
     }
 }
