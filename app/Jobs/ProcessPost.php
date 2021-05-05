@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ContentMessages.php
+ * ContentUpdate.php
  * PHP Version 7
  *
  * @category PubSub

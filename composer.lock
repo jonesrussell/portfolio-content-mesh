@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "601bbf7355e30e51d57d18deff0aff45",
+    "content-hash": "f25fafe33c6b9a2612554dc9ae20def6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4211,7 +4211,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",

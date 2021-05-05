@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ContentMessages.php
+ * ContentUpdate.php
  * PHP Version 7
  *
  * @category PubSub
@@ -28,7 +28,7 @@ use Log;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://content-mesh.jonesrussell42.xyz
  */
-class ContentMessages extends Command
+class ContentUpdate extends Command
 {
     /**
      * The name and signature of the console command.
