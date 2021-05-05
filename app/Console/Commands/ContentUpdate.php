@@ -60,8 +60,9 @@ class ContentUpdate extends Command
     public function handle()
     {
         $redis = Redis::connection('content');
+        logger(config('topic.content'));
 
-        $redis->psubscribe(
+        $redis->subscribe(
             [config('topic.content')],
             function ($message) {
                 $content = json_decode($message, true);
