@@ -61,8 +61,9 @@ class ContentUpdate extends Command
     {
         $redis = Redis::connection('content');
         logger(config('topic.content'));
+        ini_set("default_socket_timeout", 600);
 
-        $redis->subscribe(
+        $redis->psubscribe(
             [config('topic.content')],
             function ($message) {
                 $content = json_decode($message, true);
