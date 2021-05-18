@@ -44,12 +44,16 @@ class ContentUpdate extends Command
      */
     protected $description = "Subscribe to Redis topic looking for content updates";
 
+    private $redis;
+
     /**
      * Create a new command instance.
      */
     public function __construct()
     {
         parent::__construct();
+
+        $this->redis = Redis::connection();
     }
 
     /**
@@ -59,11 +63,10 @@ class ContentUpdate extends Command
      */
     public function handle()
     {
-        $redis = Redis::connection('content');
         logger(config('topic.content'));
         ini_set("default_socket_timeout", 600);
 
-        $redis->psubscribe(
+        $this->redis->subscribe(
             [config('topic.content')],
             function ($message) {
                 $content = json_decode($message, true);
