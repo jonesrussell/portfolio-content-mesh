@@ -63,17 +63,14 @@ class ContentUpdate extends Command
      */
     public function handle()
     {
-        logger(config('topic.content'));
-        ini_set("default_socket_timeout", 600);
+        // logger(config('topic.content'));
+        // ini_set("default_socket_timeout", 600);
 
-        $this->redis->subscribe(
+        $this->redis->psubscribe(
             [config('topic.content')],
             function ($message) {
                 $content = json_decode($message, true);
-                logger(
-                    $content,
-                    ["config('topic.content')" => config('topic.content')]
-                );
+                logger($content);
 
                 switch ($content['type']) {
                     case 'page':
