@@ -47,9 +47,9 @@ return [
             'driver'   => 'mongodb',
             'host'     => env('MONGO_HOST', 'localhost'),
             'port'     => env('MONGO_PORT', 27017),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', ''),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('MONGO_DATABASE', 'laravel'),
+            'username' => env('MONGO_USERNAME', ''),
+            'password' => env('MONGO_PASSWORD', ''),
             'options'  => [
                 // required by mongo 3
                 'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
