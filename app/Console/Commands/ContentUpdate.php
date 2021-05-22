@@ -64,7 +64,7 @@ class ContentUpdate extends Command
     public function handle()
     {
         // logger(config('topic.content'));
-        ini_set("default_socket_timeout", 600);
+        ini_set("default_socket_timeout", -1);
 
         $this->redis->psubscribe(
             [config('topic.content')],
