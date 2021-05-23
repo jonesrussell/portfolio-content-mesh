@@ -65,6 +65,7 @@ class ContentUpdate extends Command
     {
         // logger(config('topic.content'));
         ini_set("default_socket_timeout", -1);
+        // $this->redis->setOption(Redis::OPT_READ_TIMEOUT, -1);
 
         $this->redis->psubscribe(
             [config('topic.content')],
