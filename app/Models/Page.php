@@ -22,10 +22,10 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
  *
  * test
  */
-class Post extends Eloquent
+class Page extends Eloquent
 {
     protected $connection = 'mongo';
-    protected $collection = 'posts';
+    protected $collection = 'pages';
     protected $primaryKey = '_id';
     public $incrementing  = false;
 
