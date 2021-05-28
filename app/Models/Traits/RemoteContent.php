@@ -47,7 +47,7 @@ trait RemoteContent
      */
     public function addItemFromUrl(array $details)
     {
-        logger('addItemFromUrl()');
+        logger("addItemFromUrl()");
         $this->type = $details['type'];
 
         // Get content from API

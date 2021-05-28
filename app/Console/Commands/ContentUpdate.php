@@ -53,7 +53,7 @@ class ContentUpdate extends Command
     {
         parent::__construct();
 
-        $this->redis = Redis::connection();
+        // $this->redis = Redis::connection();
     }
 
     /**
@@ -67,11 +67,13 @@ class ContentUpdate extends Command
         ini_set("default_socket_timeout", -1);
         // $this->redis->setOption(Redis::OPT_READ_TIMEOUT, -1);
 
-        $this->redis->psubscribe(
+        Redis::psubscribe(
             [config('topic.content')],
             function ($message) {
+                logger($message);
                 $content = json_decode($message, true);
                 logger($content);
+                logger($content['type']);
 
                 switch ($content['type']) {
                     case 'page':

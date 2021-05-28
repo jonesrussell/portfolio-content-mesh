@@ -31,6 +31,7 @@ class PageRepository extends BaseRepository
      */
     public function model()
     {
+        logger("PageRepository.php model()");
         return Page::class;
     }
 

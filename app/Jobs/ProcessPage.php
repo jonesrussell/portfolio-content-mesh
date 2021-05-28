@@ -15,6 +15,7 @@ namespace App\Jobs;
 
 use App\Repositories\PageRepository;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -44,7 +45,9 @@ class ProcessPage implements ShouldQueue
      */
     public function __construct($details)
     {
+        logger("in ProcessPage.php");
         $this->details = $details;
+        logger($this->details);
     }
 
     /**
@@ -57,6 +60,7 @@ class ProcessPage implements ShouldQueue
      */
     public function handle(PageRepository $pageRepo)
     {
+        logger("in ProcessPage handle(), call $pageRepo->addItemFromUrl()");
         $pageRepo->addItemFromUrl($this->details);
     }
 }

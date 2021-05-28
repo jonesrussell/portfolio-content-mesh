@@ -145,6 +145,8 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_DB', 0),
+            'retry_after' => 11 * 60,
+            'block_for' => null,
         ],
 
         'cache' => [
@@ -152,6 +154,8 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_CACHE_DB', 1),
+            'retry_after' => 11 * 60,
+            'block_for' => null,
         ],
 
         'queue' => [
@@ -159,6 +163,8 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_QUEUE_DB', 2),
+            'retry_after' => 11 * 60,
+            'block_for' => null,
         ],
 
         'content' => [
@@ -166,6 +172,8 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_CONTENT_DB', 3),
+            'retry_after' => 11 * 60,
+            'block_for' => null,
         ],
 
     ],
