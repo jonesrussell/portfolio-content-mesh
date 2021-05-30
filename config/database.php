@@ -43,7 +43,7 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mongo' => [
+        'mongodb' => [
             'driver'   => 'mongodb',
             'host'     => env('MONGO_HOST', 'localhost'),
             'port'     => env('MONGO_PORT', 27017),

@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
 
         /*
          * Application Service Providers...
