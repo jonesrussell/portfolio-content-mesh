@@ -48,6 +48,7 @@ class ProcessPage implements ShouldQueue
         logger("in ProcessPage.php");
         $this->details = $details;
         logger($this->details);
+        $this->onQueue("processing");
     }
 
     /**
