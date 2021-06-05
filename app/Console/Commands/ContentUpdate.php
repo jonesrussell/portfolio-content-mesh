@@ -63,23 +63,18 @@ class ContentUpdate extends Command
      */
     public function handle()
     {
-        // logger(config('topic.content'));
         ini_set("default_socket_timeout", -1);
-        // $this->redis->setOption(Redis::OPT_READ_TIMEOUT, -1);
 
         Redis::psubscribe(
             [config('topic.content')],
             function ($message) {
-                logger($message);
                 $content = json_decode($message, true);
-                logger($content);
-                logger($content['type']);
 
                 switch ($content['type']) {
                     case 'page':
                         Log::debug('content is page, dispatch job');
-                        ProcessPage::dispatch($content)
-                            ->onConnection('default');
+                        ProcessPage::dispatch($content);
+                        // ->onConnection('default');
                         break;
                     case 'post':
                         Log::debug('content is post, dispatch job');

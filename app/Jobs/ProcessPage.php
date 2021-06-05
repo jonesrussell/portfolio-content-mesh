@@ -48,7 +48,7 @@ class ProcessPage implements ShouldQueue
         logger("in ProcessPage.php");
         $this->details = $details;
         logger($this->details);
-        $this->onQueue("processing");
+        // $this->onQueue("processing");
     }
 
     /**
@@ -63,5 +63,15 @@ class ProcessPage implements ShouldQueue
     {
         logger("in ProcessPage handle(), call $pageRepo->addItemFromUrl()");
         $pageRepo->addItemFromUrl($this->details);
+    }
+
+    /**
+     * Get the tags that should be assigned to the job.
+     *
+     * @return array
+     */
+    public function tags()
+    {
+        return ['render'];
     }
 }
