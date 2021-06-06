@@ -17,7 +17,7 @@ use WoohooLabs\Yang\JsonApi\Schema\Document;
 /**
  * Class BaseRepository.
  */
-abstract class BaseRepository implements RepositoryContract
+abstract class BaseRepository implements RepositoryContractlogger
 {
     /**
      * URL of resource to fetch.
@@ -107,6 +107,8 @@ abstract class BaseRepository implements RepositoryContract
     public function makeModel()
     {
         $model = app()->make($this->model());
+
+        // logger($model);
 
         if (!$model instanceof Model) {
             Log::error('!$model instanceof Model');

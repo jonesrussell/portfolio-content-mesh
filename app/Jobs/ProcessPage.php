@@ -45,9 +45,7 @@ class ProcessPage implements ShouldQueue
      */
     public function __construct($details)
     {
-        logger("in ProcessPage.php");
         $this->details = $details;
-        logger($this->details);
         // $this->onQueue("processing");
     }
 
@@ -61,7 +59,7 @@ class ProcessPage implements ShouldQueue
      */
     public function handle(PageRepository $pageRepo)
     {
-        logger("in ProcessPage handle(), call $pageRepo->addItemFromUrl()");
+        logger("in ProcessPage handle(), call pageRepo->addItemFromUrl()");
         $pageRepo->addItemFromUrl($this->details);
     }
 
@@ -72,6 +70,6 @@ class ProcessPage implements ShouldQueue
      */
     public function tags()
     {
-        return ['render'];
+        return ['content'];
     }
 }
