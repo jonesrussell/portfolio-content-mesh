@@ -6,7 +6,7 @@ use App\Exceptions\GeneralException as GeneralException;
 use GuzzleHttp\Psr7\Request;
 use Http\Adapter\Guzzle6\Client as GuzzleClient;
 use Illuminate\Database\Eloquent\Collection;
-// use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use Moloquent as Model;
 use Log;
 use WoohooLabs\Yang\JsonApi\Client\JsonApiClient;
@@ -17,7 +17,7 @@ use WoohooLabs\Yang\JsonApi\Schema\Document;
 /**
  * Class BaseRepository.
  */
-abstract class BaseRepository implements RepositoryContractlogger
+abstract class BaseRepository implements RepositoryContract
 {
     /**
      * URL of resource to fetch.
@@ -108,10 +108,11 @@ abstract class BaseRepository implements RepositoryContractlogger
     {
         $model = app()->make($this->model());
 
-        // logger($model);
+        logger($model);
 
-        if (!$model instanceof Model) {
+        if (!$model instanceof Moloquent) {
             Log::error('!$model instanceof Model');
+            logger("Class {$this->model()} must be an instance of " . Model::class);
             throw new GeneralException("Class {$this->model()} must be an instance of " . Model::class);
         }
 
